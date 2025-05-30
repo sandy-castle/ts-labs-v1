@@ -4,9 +4,10 @@ type Dog = { type: "dog"; name: string; bark: () => void };
 type Cat = { type: "cat"; name: string; meow: () => void };
 type Animal = Dog | Cat;
 
-// function isDog(animal: Animal): animal is Dog {
-//   // 여기에 코드를 작성하세요.
-// }
+function isDog(animal: Animal): animal is Dog {
+  //   // 여기에 코드를 작성하세요.
+  return animal.type === "dog";
+}
 
 const animals: Animal[] = [
   { type: "dog", name: "몽이", bark: () => console.log("멍!") },

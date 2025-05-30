@@ -1,17 +1,17 @@
 // 인터페이스의 기본 구조 선언 및 객체 적용
 
-interface User {
+interface AppUser {
   id: number;
   name: string;
   isAdmin: boolean;
 }
 
-const userA: User = { id: 1, name: "홍유저", isAdmin: false };
-const userB: User = { id: 2, name: "김유저", isAdmin: true };
+const userA: AppUser = { id: 1, name: "홍유저", isAdmin: false };
+const userB: AppUser = { id: 2, name: "김유저", isAdmin: true };
 
-// 함수 매개변수 타입 지정
-function printUser(user: User): void {
-  console.log(`[user] id:${user.id}, name:${user.name}, admin:${user.isAdmin}`);
+function printUser(user: AppUser): void {
+  const role = user.isAdmin ? "관리자" : "일반 유저";
+  console.log(`🧑‍💻 ${user.name} (ID: ${user.id}) - ${role}`);
 }
 
 printUser(userA); // [user] id:1, name:홍유저, admin:false

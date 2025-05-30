@@ -8,3 +8,19 @@
 const shout = (str: string) => str + '!';
 processStrings(['hi', 'bye'], shout) // ['hi!', 'bye!']
 */
+// 1. 변환 함수 타입 별칭 정의
+type StringTransformer = (str: string) => string;
+
+// 2. 문자열 배열을 변환하는 함수 작성
+function processStrings(
+  strings: string[],
+  transform: StringTransformer
+): string[] {
+  return strings.map(transform);
+}
+
+const shout = (str: string) => str + "!";
+const toUpper = (str: string) => str.toUpperCase();
+
+console.log(processStrings(["hi", "bye"], shout));
+console.log(processStrings(["apple", "banana"], toUpper));

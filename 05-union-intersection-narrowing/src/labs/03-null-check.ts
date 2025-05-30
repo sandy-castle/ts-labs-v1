@@ -3,9 +3,23 @@
 
 type User = { id: number; name: string; email?: string };
 
-function printUserInfo(user?: User) {
-  // 여기에 코드를 작성하세요.
+function printUserInfomation(user?: User) {
+  if (!user) {
+    console.log("유저 정보가 없습니다.");
+    return;
+  }
+
+  console.log(`ID: ${user.id}, 이름: ${user.name}`);
+
+  if (user.email) {
+    console.log(`이메일: ${user.email}`);
+  }
 }
+
+// 사용 예시
+printUserInfomation();
+printUserInfomation({ id: 2, name: "Tom" });
+printUserInfomation({ id: 3, name: "Jane", email: "jane@example.com" });
 
 // 사용 예시
 // printUserInfo();
